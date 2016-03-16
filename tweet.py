@@ -1,5 +1,7 @@
 import random
 import axelrod
+import tweepy
+import csv
 
 rounds = 10
 
@@ -14,6 +16,19 @@ tweet = "{} v {}:".format(players[0],
 tweet += "\n\n"
 tweet += match.sparklines(c_symbol="C", d_symbol="D")
 tweet += "\n\n"
-tweet += "axelrod.readthedocs.org"
+tweet += "axelrod.readthedocs.org #gametheory"
 
+# Print tweet to screen
 print(tweet)
+
+# Reading in credentials from file
+with open('credentials', 'r') as f:
+    cred = dict([row for row in csv.reader(f)])
+
+# Authenticating
+auth = tweepy.OAuthHandler(cred["consumer_key"], cred["consumer_secret"])
+auth.set_access_token(cred["token"], cred["token_secret"])
+
+# Tweeting
+api = tweepy.API(auth)
+api.update_status(tweet)
