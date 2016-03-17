@@ -16,7 +16,7 @@ tweet = "{} v {}:".format(players[0],
 tweet += "\n\n"
 tweet += match.sparklines(c_symbol="C", d_symbol="D")
 tweet += "\n\n"
-tweet += "axelrod.readthedocs.org #gametheory"
+tweet += "axelrod.readthedocs.org"
 
 # Print tweet to screen
 print(tweet)
