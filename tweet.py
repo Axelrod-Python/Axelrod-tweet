@@ -1,10 +1,22 @@
 import random
-import axelrod
 import tweepy
 import csv
 
 from secrets import *
 
+# Mocking matplotlib
+import mock
+import sys
+
+mock_modules = ['matplotlib.pyplot', 'matplotlib',
+                'matplotlib.transforms', 'mpl_toolkits.axes_grid1']
+for mod_name in mock_modules:
+    sys.modules[mod_name] = mock.Mock()
+
+# import the library
+import axelrod
+
+# Parameters
 rounds = 10
 symbol_pairs = [["C", "D"]] * 4 + \
                [["😇 ", "😡 "]]
