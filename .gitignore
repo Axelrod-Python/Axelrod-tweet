@@ -1,1 +1,2 @@
-credentials
+secrets.py
+__pycache__/

@@ -3,6 +3,8 @@ import axelrod
 import tweepy
 import csv
 
+from secrets import *
+
 rounds = 10
 symbol_pairs = [["C", "D"]] * 4 + \
                [["😇 ", "😡 "]]
@@ -24,13 +26,9 @@ tweet += "axelrod.readthedocs.org"
 # Print tweet to screen
 print(tweet)
 
-# Reading in credentials from file
-with open('credentials', 'r') as f:
-    cred = dict([row for row in csv.reader(f)])
-
 # Authenticating
-auth = tweepy.OAuthHandler(cred["consumer_key"], cred["consumer_secret"])
-auth.set_access_token(cred["token"], cred["token_secret"])
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(token, token_secret)
 
 # Tweeting
 api = tweepy.API(auth)
