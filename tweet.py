@@ -4,8 +4,7 @@ import tweepy
 import csv
 
 rounds = 10
-symbol_pairs = [["C", "D"]] * 3 + \
-               [["👍 ", "👎 "]] + \
+symbol_pairs = [["C", "D"]] * 4 + \
                [["😇 ", "😡 "]]
 
 # Create and play the match
