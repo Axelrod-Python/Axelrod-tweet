@@ -26,12 +26,15 @@ players = [s() for s in random.sample(axelrod.strategies, 2)]
 symbols = random.choice(symbol_pairs)
 match = axelrod.Match(players, rounds)
 match.play()
+scores = [sum([score[i] for score in match.scores()]) for i in range(2)]
 
 # Write the tweet
 tweet = "{} v {}:".format(players[0],
                           players[1])
 tweet += "\n\n"
 tweet += match.sparklines(c_symbol=symbols[0], d_symbol=symbols[1])
+tweet += "\n\n"
+tweet += "Score: ({}, {})".format(*scores)
 tweet += "\n\n"
 tweet += "axelrod.readthedocs.org"
 
