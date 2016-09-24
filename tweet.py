@@ -2,7 +2,7 @@ import random
 import tweepy
 
 from secrets import *
-from numpy import mean
+from numpy import median
 
 # Mocking matplotlib
 import mock
@@ -56,9 +56,9 @@ def tweet_tournament():
     # Write the tweet
     tweet = "3 player tournament: \n"
     tweet += "\n"
-    tweet += "1st: {} (Mean score: {:.2f})\n".format(ranks[0], mean(scores[0]))
-    tweet += "2nd: {} ({:.2f})\n".format(ranks[1], mean(scores[1]))
-    tweet += "3rd: {} ({:.2f})\n".format(ranks[2], mean(scores[2]))
+    tweet += "1st: {} (Median score: {:.2f})\n".format(ranks[0], median(scores[0]))
+    tweet += "2nd: {} ({:.2f})\n".format(ranks[1], median(scores[1]))
+    tweet += "3rd: {} ({:.2f})\n".format(ranks[2], median(scores[2]))
 
     return tweet
 
